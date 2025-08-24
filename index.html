@@ -2,7 +2,7 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>فرید کمانگر | گالری هنری</title>
+  <title>وبسایت فرید کمانگر</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap');
@@ -19,28 +19,6 @@
       color: #333;
       overflow-x: hidden;
       cursor: none;
-      transition: background-color 0.6s ease;
-    }
-
-    body.dark-mode {
-      background: linear-gradient(to bottom, #1a1a1a, #000000);
-      color: #f0f0f0;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 998;
-      transition: left 0.6s ease;
-    }
-
-    body.dark-mode::before {
-      left: 0;
     }
 
     .cursor {
@@ -54,33 +32,6 @@
       transition: transform 0.1s ease, background 0.3s ease;
       z-index: 9999;
       background: transparent;
-    }
-
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 50%;
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10000;
-      transition: background 0.5s ease;
-    }
-
-    .theme-toggle span {
-      font-size: 24px;
-      animation: rotateIcon 1s ease;
-    }
-
-    @keyframes rotateIcon {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
     }
 
     header {
@@ -138,7 +89,6 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       overflow: hidden;
-      position: relative;
     }
 
     .card:hover {
@@ -155,45 +105,6 @@
       padding: 1rem;
       font-weight: bold;
       text-align: center;
-    }
-
-    .view-btn {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      border: none;
-      border-radius: 30px;
-      background: linear-gradient(135deg, #6e00ff, #ff00c8);
-      color: white;
-      font-weight: bold;
-      font-family: 'Vazirmatn', sans-serif;
-      box-shadow: 0 0 15px rgba(255, 0, 200, 0.5);
-      cursor: pointer;
-      transition: all 0.4s ease;
-      overflow: hidden;
-    }
-
-    .view-btn::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: rgba(255,255,255,0.2);
-      transform: skewX(-45deg);
-      transition: left 0.6s ease;
-    }
-
-    .view-btn:hover::after {
-      left: 100%;
-    }
-
-    .view-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 0, 200, 0.8);
     }
 
     @keyframes fadeIn {
@@ -215,10 +126,6 @@
 <body>
   <div class="cursor"></div>
 
-  <div class="theme-toggle" onclick="toggleTheme()">
-    <span>🌗</span>
-  </div>
-
   <header>
     <h1>فرید کمانگر | شعر، طراحی، خلاقیت</h1>
     <nav>
@@ -233,17 +140,17 @@
     <div class="card">
       <img src="https://cdn.tarhpik.com/5_Preview/1403/5/7/135839/Photo-of-open-old-book-1000.webp?text=اثر+اول" alt="اثر اول">
       <p>نام اثر اول</p>
-      <button class="view-btn">مشاهده</button>
+      <button class="view-btn" onclick="window.open('https://www.google.com', '_blank')">مشاهده</button>
     </div>
     <div class="card">
       <img src="https://cdn.tarhpik.com/5_Preview/1403/5/1/211026/Concept-photo-of-idea-and-creativity-with-the-combination-of-lamp-and-open-book-1000.webp?text=اثر+دوم" alt="اثر دوم">
       <p>نام اثر دوم</p>
-      <button class="view-btn">مشاهده</button>
+      <button class="view-btn" onclick="window.open('https://www.google.com', '_blank')">مشاهده</button>
     </div>
     <div class="card">
       <img src="https://cdn.tarhpik.com/5_Preview/1403/5/7/135402/Photo-of-an-open-book-with-a-blank-page-1000.webp?text=اثر+سوم" alt="اثر سوم">
       <p>نام اثر سوم</p>
-      <button class="view-btn">مشاهده</button>
+      <button class="view-btn" onclick="window.open('https://www.google.com', '_blank')">مشاهده</button>
     </div>
   </section>
 
@@ -254,6 +161,13 @@
       cursor.style.top = e.clientY + 'px';
     });
 
-    document.querySelectorAll('a, .card, .view-btn').forEach(el => {
+    document.querySelectorAll('a, .card').forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursor.style.background
+        cursor.style.background = '#333';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.background = 'transparent';
+      });
+    });
+  </script>
+</body>
