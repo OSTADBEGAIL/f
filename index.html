@@ -153,32 +153,33 @@
       animation: fadeIn 2s ease;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #333;
-      margin-bottom: 1rem;
-    }
+h1 {
+  font-size: 2.5rem;
+  animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #333;
+  margin-bottom: 1rem;
+}
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
+@keyframes blink {
+  50% { border-color: transparent }
+}
 
-    nav {
-      margin-top: 1rem;
-      <script>
-  setTimeout(() => {
-    document.querySelector('h1').style.borderRightColor = 'transparent';
-  }, 4000); // همزمان با پایان انیمیشن تایپ
-</script>
-    }
+/* کلاس جدید برای توقف چشمک‌زن */
+.stop-blink {
+  animation: none !important;
+  border-right: none;
+}
+
+nav {
+  margin-top: 1rem;
+}
 
     nav a {
       margin: 0 1rem;
